@@ -1,0 +1,102 @@
+{{ define "create" }}
+    {{ template "header" . }}
+    <div class="column is-9">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="../">YOTTKP</a></li>
+                        <li><a href="../">Admin</a></li>
+                        <li class="is-active"><a href="#" aria-current="page">Create</a></li>
+                    </ul>
+                </nav>
+                
+
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Create New Class
+                                </p>
+                            </header>
+                            <form method="post" action="/administrator/create/process">
+                                <div class="form">
+                                    <div class="field">
+                                        <label class="label">Name</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="name" placeholder="e.g. 中阮班及古箏班">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Category</label>
+                                        <div class="control">
+                                            <div class="select">
+                                                <select name="category">
+                                                    {{range .cats}}
+                                                        <option value="{{.Id}}">{{.Name}}</option>
+                                                    {{end}}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Date</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="date" placeholder="e.g. 逢星期三">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Time</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="time" placeholder="e.g. 3:45-4:45pm">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Venue</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="venue" placeholder="e.g. 音樂室">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Tutor</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="tutor" placeholder="e.g. 青苗導師">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Quota</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="quota" placeholder="e.g. 10">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Fee</label>
+                                        <div class="control">
+                                            <input class="input" type="text" name="fee" placeholder="e.g. 每10堂$900">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label">Description</label>
+                                        <div class="control">
+                                            <textarea class="textarea" name="description" placeholder="e.g. 樂器由學校免費提供"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            <footer class="card-footer">
+                                <button type="submit" class="button is-primary is-fullwidth">Submit</button>
+                            </footer>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+    {{ template "footer" . }}
+{{ end }}

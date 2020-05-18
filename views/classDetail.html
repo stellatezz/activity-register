@@ -1,0 +1,94 @@
+{{ define "detail" }}
+    {{ template "header" . }}
+    <div class="column is-9">
+                <nav class="breadcrumb" aria-label="breadcrumbs">
+                    <ul>
+                        <li><a href="">YOTTKP</a></li>
+                        <li><a href="/administrator/home">Admin</a></li>
+                        <li><a href="">Detail</a></li>
+                        <li class="is-active"><a href="#" aria-current="page">{{.Name}}</a></li>
+                    </ul>
+                </nav>
+                
+
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    {{.Name}}
+                                </p>
+                            </header>                            
+                                <div class="content">
+                                    <table class="table-showdetail">
+                                        <tbody>
+                                            <tr>
+                                                <td width="10%" align="right">Category: </td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%" align="right">Date: </td>
+                                                <td with="40%">{{.Date}}</td>
+                                                <td width="10%" align="right">Time: </td>
+                                                <td with="40%">{{.Time}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%" align="right">Venue: </td>
+                                                <td with="40%">{{.Venue}}</td>
+                                                <td width="10%" align="right">Tutor: </td>
+                                                <td with="40%">{{.Tutor}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%" align="right">Quota: </td>
+                                                <td with="40%">{{.Quota}}</td>
+                                                <td width="10%" align="right">Fee: </td>
+                                                <td with="40%">{{.Fee}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="10%" align="right">Description: </td>
+                                                <td with="40%">{{.Description}}</td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Member List
+                                </p>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td>Student Name</td>
+                                                <td>Class</td>
+                                                <td>Class No.</td>
+                                                <td>Register Time</td>
+                                            </tr>
+                                            {{range .Enrolls}}
+                                            <tr>
+                                                <td>{{.Name}}</td>
+                                                <td>{{.Class}}</td>
+                                                <td>{{.Classno}}</td>
+                                                <td><{{.Erolltime}}/td>
+                                            </tr>
+                                            {{end}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-footer-item">View All</a>
+                            </footer>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+    {{ template "footer" . }}
+{{ end }}
